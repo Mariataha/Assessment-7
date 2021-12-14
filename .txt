@@ -1,0 +1,29 @@
+Results for the extraLargeArray
+insert 2.499659805 s
+append 6.540976 ms (millisecond) Bigger than microsecond*
+
+Results for the largeArray
+insert 17.51192 ms
+append 1.720238 ms
+
+Results for the mediumArray
+insert 585.533 μs (microsecond) Smaller than millisecond*
+append 429.617 μs
+
+Results for the smallArray
+insert 242.383 μs
+append 297.934 μs
+
+Results for the tinyArray
+insert 107.213 μs
+append 220.515 μs
+
+**A millisecond is a unit of time. The symbol for millisecond is ms. There are 0.001 milliseconds in a microsecond. What is a microsecond (μs)? A microsecond is a unit of time.
+
+4) Read over the results, and write a paragraph that explains the pattern you see. How does each function “scale”? Which of the two functions scales better? How can you tell?
+
+DoublerAppend uses the push method and the doublerInsert uses the unshift method. It looks like the doubleInserter function scales better. When the array is smaller it perfomrs better, but it does not scale as well when the data sets get larger. The doubleAppend function shows that as you scale up the size of the array it becomes larger, the doublerAppend function scales up and has a slower runtime and it seems that the difference is growing at an exponential rate. The doubleInserter function on the other hand seems to have more of a linear style of growth.
+
+5) For extra credit, do some review / research on why the slower function is so slow, and summarize the reasoning for this.
+
+The difference in performance is perhaps explained by the array.push function and that it requires less changes to be made in its foundational structure. When arrays are created, a specific amount of memory os allotted for it. So when additional space is required, a bigger portion of memory space is added and copies the original information and data to the new location. On the otherhand, Array.unshift is quite different. Adding a value at the front of the array will cause the foundational structure of the memory to be altered and this can add up faster than you think. 
